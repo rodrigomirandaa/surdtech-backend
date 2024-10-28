@@ -7,10 +7,13 @@ import com.example.demo.model.TipoUser;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.infra.TokenService;
+
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -48,19 +51,25 @@ public class AuthController {
 
 
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody RegisterRequestDTO body){
+    public ResponseEntity register(@Valid @RequestBody RegisterRequestDTO body ,BindingResult bindingResult){
         Optional<User> user = this.repository.findByEmail(body.email());
-
+         //Testando se há um email igual.
         if(user.isEmpty()) {
+            //Impedindo que o usuário tente se registrar sem preencher todos os campos.
+            if (bindingResult.hasErrors()) {
+                System.out.println("error");
+               return ResponseEntity.badRequest().build();
+            }
+            else{
             User newUser = new User();
             newUser.setSenha(passwordEncoder.encode(body.senha()));
             newUser.setEmail(body.email());
             newUser.setNome(body.nome());
             newUser.setTipoUser(TipoUser.valueOf(String.valueOf(body.tipoUser())));
             this.repository.save(newUser);
-
             String token = this.tokenService.generateToken(newUser);
             return ResponseEntity.ok(new ResponseDTO(newUser.getNome(), token));
+            }
         }
         return ResponseEntity.badRequest().build();
     }
