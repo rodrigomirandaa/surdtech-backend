@@ -62,4 +62,9 @@ public class User {
     public TipoUser getTipoUser() {
         return tipoUser;
     }
+    @Override
+public String toString() {
+    return email; // ou qualquer outra representação que você deseja
+}
+
 }
