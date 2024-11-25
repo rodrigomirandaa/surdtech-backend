@@ -11,15 +11,18 @@ import com.example.demo.service.infra.TokenService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -48,7 +51,19 @@ public class AuthController {
         }
         return ResponseEntity.badRequest().build();
     }
+@GetMapping("/profile")
+public ResponseEntity<User> getUserProfile(Principal principal) {
+    if (principal == null) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build(); // Retorna 401 se o usuário não estiver autenticado
+    }
 
+    String email = principal.getName(); // Obtém o e-mail do principal
+    User user = repository.findByEmail(email)
+        .orElseThrow(() -> new RuntimeException("User not found"));
+        System.out.println("E-mail do usuário: " + user.getEmail()); // Busca o usuário pelo e-mail
+
+    return ResponseEntity.ok(user); // Retorna o usuário
+}
 
     @PostMapping("/register")
     public ResponseEntity register(@Valid @RequestBody RegisterRequestDTO body ,BindingResult bindingResult){
