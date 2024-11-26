@@ -80,42 +80,33 @@ npm run dev
 - Certifique-se de que o servidor do PostgreSQL esteja em execução antes de iniciar a aplicação.
 - Verifique as dependências e versões para evitar conflitos.
 
-## Responsáveis e Contato
+## Responsáveis
 
 ### Equipe do Projeto
 
 - **Andressa Mota**
-  - **LinkedIn:** [](https://linkedin.com/in/)
-  - **Github:** [](https://github.com/andressamotaz)
+  - **Github:** [Andressa Mota](https://github.com/andressamotaz)
 
 - **Ana Beatriz**
-  - **LinkedIn:** [](https://www.linkedin.com/in/)
-  - **Github:** [](https://github.com/beatriz862)
+  - **Github:** [Ana Beatriz](https://github.com/beatriz862)
 
 - **Lucas Carneiro**
-   - **LinkedIn:** [](https://www.linkedin.com/in/)
-   - **Github:** [](https://github.com/lucascarneiros)
+   - **Github:** [Lucas Carneiro](https://github.com/lucascarneiros)
 
 - **Maria Helena**
-   - **LinkedIn:** [](https://www.linkedin.com/in/)
-   - **Github:** [](https://github.com/mhelenaas)
+   - **Github:** [Maria Helena](https://github.com/mhelenaas)
 
 - **Rodolfo Rodrigo**
-   - **LinkedIn:** [](https://www.linkedin.com/in/rodolforodrigo)
-   - **Github:** [](https://github.com/rodolfoxyz)
+   - **Github:** [Rodolfo Rodrigo](https://github.com/rodolfoxyz)
 
 - **Rodrigo Miranda**
-   - **LinkedIn:** [](https://linkedin.com/in/)
-   - **Github:** [](github.com/rodrigomirandaa)
+   - **Github:** [Rodrigo Miranda](github.com/rodrigomirandaa)
 
 - **Victor Costa**
-  - **LinkedIn:** [](https://www.linkedin.com/in/)
-  - **Github:** [](https://github.com/victor.costa213)
+  - **Github:** [Victor Costa](https://github.com/victorcosta213)
 
 - **Vinicius Grillo**
-  - **LinkedIn:** [](https://www.linkedin.com/in/)
-  - **Github:** [](https://github.com/viniciusgr63)
+  - **Github:** [Vinícius Grillo](https://github.com/viniciusgr63)
 
 - **Salmo Thélio**
-   - **LinkedIn:** [](https://www.linkedin.com/in/)
-   - **Github:** [](https://github.com/)
+   - **Github:** [Salmo Thélio](https://github.com/trikest)
